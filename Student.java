@@ -1,9 +1,11 @@
 public class Student{
 	private String name;
 	private double[]grades;
-	private static int totalNumberOfStudent = 1;
+	private static int totalNumberOfStudent = 0;
 
+    //no arg constructor for student object
 	public Student(){
+		totalNumberOfStudent++;
 
 	}
 	public void setName(String name){
@@ -19,9 +21,11 @@ public class Student{
 	public double[]getGrades(){
 		return this.grades;
 	}
-	public int getNumberOfStudents(){
-		return totalNumberOfStudent++;
+	//returning the number of objects created
+	public static int getNumberOfStudents(){
+		return totalNumberOfStudent;
 	}
+	//average calculations for the grades in the grades array
 	public double getAverageGrade(){
 		double sum = 0;
 		for(int i = 0;i<grades.length;i++){
@@ -30,6 +34,7 @@ public class Student{
 		double average = sum/grades.length;
 		return average;
 	}
+	//returning all the details processed
 	public void printStudentDetails(){
 		System.out.println("Student name is :"+this.name+"and average grade is :"+getAverageGrade()+" and current number of students is"+totalNumberOfStudent);
 	}
